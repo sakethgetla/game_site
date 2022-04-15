@@ -23,7 +23,7 @@ class PathFinder extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props)
+    //console.log(props)
 
     const numNodes = 20
 
@@ -89,7 +89,8 @@ class PathFinder extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate')
+    //console.log('shouldComponentUpdate')
+    // dont rerender if the only the node is clicked
     return this.state.algoSelect !== nextState.algoSelect || nextState.nodeStatus[nextState.startNode] !== this.state.nodeStatus[this.state.startNode]
   }
 
@@ -100,12 +101,12 @@ class PathFinder extends React.Component {
   makeDead(node) {
     //console.log("nodes", node, this.state);
     if (this.isDead(node)) {
-      console.log("revive", node);
+     // console.log("revive", node);
       // setNodeStatus(prev => { return { ...prev, [node]: nodeStatusType.alive } });
       this.setState((oldState) => { return { nodeStatus: { ...oldState.nodeStatus, [node]: nodeStatusType.alive } } });
 
     } else {
-      console.log("kill", node);
+      //console.log("kill", node);
       // setNodeStatus(prev => { return { ...prev, [node]: nodeStatusType.dead } });
       this.setState((oldState) => { return { nodeStatus: { ...oldState.nodeStatus, [node]: nodeStatusType.dead } } });
       // this.setState((oldState) => {return  {...oldState.nodeStatus, [node]: nodeStatusType.dead} });
@@ -122,7 +123,7 @@ class PathFinder extends React.Component {
     n[-1 + (this.state.numNodes ** 2)] = nodeStatusType.endNode;
     //setNodeStatus(n);
     this.setState({ nodeStatus: n, findPath: false });
-    console.log('reset', n)
+    //console.log('reset', n)
   }
 
 
@@ -299,7 +300,9 @@ class PathFinder extends React.Component {
             <Button
               key={i}
               color={this.state.algoSelect === algo ? 'secondary' : 'primary'}
-              onClick={() => { this.setState({ algoSelect: algo}) }}
+              onClick={() => {
+                this.reset();
+                this.setState({ algoSelect: algo}) }}
               /* startIcon={<ReplayIcon />} */
               startIcon={<NavigationIcon />}
             >
@@ -361,12 +364,12 @@ class PathFinder extends React.Component {
           {/* </span> */}
           {/* <img alt="" src={"/grandpa.png"} /> */}
         </Grid>
-        <Button onClick={() => {
-          this.setState({ findPath: true })
-          console.log(this.state)
-        }}>
-          show state
-        </Button>
+        {/* <Button onClick={() => { */}
+        {/*   this.setState({ findPath: true }) */}
+        {/*   console.log(this.state) */}
+        {/* }}> */}
+        {/*   show state */}
+        {/* </Button> */}
       </>
     )
 

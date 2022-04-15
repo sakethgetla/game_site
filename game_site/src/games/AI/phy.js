@@ -44,6 +44,7 @@ const updateStats = (particles) => {
 
 
 const createParticles = (num = 100) => {
+  // set inital values
   const particleOptions = {
     restitution: 1,
     friction: 0,
@@ -135,7 +136,7 @@ class Scene extends React.Component {
 
     var { particles, player } = createParticles(20);
     updateStats(particles);
-        //console.log('kere');
+    //console.log('kere');
     this.setState({ player })
     let counter0 = 0;
 
@@ -271,9 +272,9 @@ class Scene extends React.Component {
     })
 
 
+    // // draw line
     Matter.Events.on(render, 'afterRender', function() {
       var context = render.context,
-        //bodies = Composite.allBodies(engine.world),
         startPoint = { x: 400, y: 100 },
         endPoint = { x: 500, y: 200 };
 

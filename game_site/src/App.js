@@ -15,6 +15,7 @@ import Scene from './games/AI/phy'
 import { AppBar, ButtonGroup, Button } from '@mui/material';
 
 
+var homePath = '/game_site'
 export default function App() {
   return (
     <Router>
@@ -24,31 +25,30 @@ export default function App() {
             <AppBar position='static'>
               <ButtonGroup variant="" size="large">
 
-                <Link to="/">
+                <Link to={homePath + "/"}>
                   <Button variant="contained">
                     Home
                   </Button>
                 </Link>
 
-                <Link to="/about">
+                <Link to={homePath + "/about"}>
                   <Button variant="contained">
                     about
                   </Button>
                 </Link>
-
-                <Link to="/users">
+                <Link to={homePath + "/users"}>
                   <Button variant="contained">
                     users
                   </Button>
                 </Link>
 
-                <Link to="/scene">
+                <Link to={homePath + "/scene"}>
                   <Button variant="contained">
                     Scene
                   </Button>
                 </Link>
 
-                <Link to="/pathFinder">
+                <Link to={homePath + "/pathFinder"}>
                   <Button variant="contained">
                     Path finding
                   </Button>
@@ -63,11 +63,11 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/pathFinder" element={<PathFinder />} />
-          <Route path="/scene" element={<Scene />} />
+          <Route path={homePath + "/about"} element={<About />} />
+          <Route path={homePath + "/users"} element={<Users />} />
+          <Route path={homePath + "/"} element={<Home />} />
+          <Route path={homePath + "/pathFinder"  }element={<PathFinder />} />
+          <Route path={homePath + "/scene"  }element={<Scene />} />
         </Routes>
       </div>
     </Router>
