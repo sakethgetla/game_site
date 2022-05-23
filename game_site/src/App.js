@@ -11,7 +11,8 @@ import {
 } from "react-router-dom";
 
 import PathFinder from './games/PathFind/PathFind';
-import Scene from './games/AI/phy'
+// import Astar from './games/AI/Astar_canvas'
+import {default as Scene} from './games/AI/Astar_canvas'
 import { AppBar, ButtonGroup, Button } from '@mui/material';
 
 
