@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useNavigate,
   Link
 } from "react-router-dom";
 
@@ -18,9 +19,11 @@ import { AppBar, ButtonGroup, Button } from '@mui/material';
 
 var homePath = '/game_site'
 export default function App() {
+// useNavigate(homePath);
   return (
     <Router>
       <div>
+      {/* {useNavigate(homePath)} */}
         <nav>
           <ul>
             <AppBar position='static'>
@@ -64,9 +67,10 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={homePath + "/"} element={<Home />} />
           <Route path={homePath + "/about"} element={<About />} />
           <Route path={homePath + "/users"} element={<Users />} />
-          <Route path={homePath + "/"} element={<Home />} />
           <Route path={homePath + "/pathFinder"  }element={<PathFinder />} />
           <Route path={homePath + "/scene"  }element={<Scene />} />
         </Routes>
