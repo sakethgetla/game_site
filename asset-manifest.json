@@ -1,11 +1,10 @@
 {
   "files": {
-    "main.js": "/game_site/static/js/main.e335aed7.js",
-    "static/media/walking.jpg": "/game_site/static/media/walking.45a1addfcf15030dcd9f.jpg",
+    "main.js": "/game_site/static/js/main.2979c282.js",
     "index.html": "/game_site/index.html",
-    "main.e335aed7.js.map": "/game_site/static/js/main.e335aed7.js.map"
+    "main.2979c282.js.map": "/game_site/static/js/main.2979c282.js.map"
   },
   "entrypoints": [
-    "static/js/main.e335aed7.js"
+    "static/js/main.2979c282.js"
   ]
 }
